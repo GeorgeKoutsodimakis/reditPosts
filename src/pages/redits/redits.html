@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      IonReddit
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>category</ion-label>
+      <ion-select (ionChange)="changeCategory()" [(ngModel)]="category" name="category">
+      <ion-option value ="sports"> sports</ion-option>
+      <ion-option value ="food"> food </ion-option>
+      <ion-option value ="news"> news </ion-option>
+      <ion-option value ="music"> music </ion-option>
+      <ion-option value ="gaming"> gaming </ion-option>
+    </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    <ion-card>
+          <!-- <h2>{{item.data.title}}</h2>
+        <ion-thumbnail *ngIf="item.data.thumbnail" >
+          <img src="{{item.data.thumbnail}}">
+        </ion-thumbnail>
+        <p>
+          <ion-icon name="thumbs-up">{{item.data.score}}</ion-icon>&nbsp;&nbsp;
+          <ion-icon name="chatboxes">{{item.data.num_comments}}</ion-icon>
+        </p>
+        <button ion-button clear  (click)="viewItem(item.data)">View</button> -->
+        <img src="{{item.data.thumbnail}}">
+        <ion-card-content>
+          <ion-card-title>
+            <h2>{{item.data.title}}</h2>
+          </ion-card-title>
+          <p>
+            <ion-icon name="thumbs-up">{{item.data.score}}</ion-icon>&nbsp;&nbsp;
+            <ion-icon name="chatboxes">{{item.data.num_comments}}</ion-icon>
+          </p>
+          <button ion-button  color="dark" outline  (click)="viewItem(item.data)">View</button>
+        </ion-card-content>
+
+
+
+    </ion-card>
+  </ion-item>
+</ion-list>
+</ion-content>
